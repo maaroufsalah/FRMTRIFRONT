@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'FRMTRIFRONT';
-  users : any;
+  villes : any;
 
   constructor(private http: HttpClient) {}
   ngOnInit() {
@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   }
 
   getUsers(){
-    this.http.get('https://reqres.in/api/users').subscribe(response => {
-      this.users = response;
+    this.http.get('https://localhost:44366/api/Ville').subscribe(response => {
+      this.villes = response;
     }, error => {
       console.log(error);
     })
