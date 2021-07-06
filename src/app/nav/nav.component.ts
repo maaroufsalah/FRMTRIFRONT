@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserResult } from '../views/account/models/user';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  constructor() { }
+  loggedIn: boolean;
+  constructor(public accountService: AccountService) { }
 
+  user: UserResult = null;
   ngOnInit(): void {
+    this.user = this.accountService.userValue;
   }
 
-  login(){
-    console.log(this.model);
+  logOut() {
+    this.accountService.logout('/account/log-in');
   }
 
 }

@@ -1,0 +1,67 @@
+<div class="col-xl-10 col-lg-12 col-md-9">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+                <div class="col-lg-8">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Nouveau Compte</h1>
+                        </div>
+                        <form class="user" #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" [(ngModel)]="model.nom" name="FirstName" class="form-control form-control-user"
+                                        placeholder="Nom">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" [(ngModel)]="model.prenom" name="LasttName" class="form-control form-control-user"
+                                        placeholder="Prénom">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" [(ngModel)]="model.userName" name="UserName" class="form-control form-control-user"
+                                        placeholder="Nom d'utilisateur">
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control" [(ngModel)]="model.roleId" name="Role">
+                                        <option [value]="undefined" >-- Veuillez choisissez --</option>
+                                        <!-- <option *ngFor="let role of rolesFromHomeComponent" [value]="role.name"> -->
+                                        <option *ngFor="let role of roles" [value]="role.name">
+                                            {{role.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" [(ngModel)]="model.email" name="Email" class="form-control form-control-user"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="col-sm-6">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" [(ngModel)]="model.password" name="Password" class="form-control form-control-user"
+                                        placeholder="Mot de passe">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" [(ngModel)]="model.confirmPassword" name="ConfirmPassword" class="form-control form-control-user" id="exampleRepeatPassword"
+                                        placeholder="Confirmer mot de passe">
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary mr-2" type="submit">Enregistrer</button>
+                                <button class="btn btn-primary mr-2" (click)="cancel()" type="button">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
