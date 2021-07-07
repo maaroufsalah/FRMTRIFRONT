@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UserResult } from './models/user';
+import { UserRequest, UserResult } from './models/user';
 @Injectable({
   providedIn: 'root',
 })
@@ -36,34 +36,57 @@ export class AccountService {
   //   );
   // }
 
-  login(username: string, password: string) {
+    // login(username: string, password: string) {
+      //   return this.http
+      //     .post(this.baseUrl + 'account/login', {
+      //       username: username,
+      //       password: password,
+      //     })
+      //     .pipe(
+      //       map((response: UserResult) => {
+      //         console.log(response);
+      //         const user = response;
+      //         if (user) {
+      //           // this.storeUser(this.f.username.value, response.data.nom, response.data.prenom);
+      //           // localStorage.setItem('user', JSON.stringify(user));
+      //           // this.currentUserSource.next(user);
+      //         }
+      //       })
+      //     );
+      // }
+
+    login(model: UserRequest) {
     return this.http
-      .post(this.baseUrl + 'account/login', {
-        username: username,
-        password: password,
-      })
-      .pipe(
-        map((response: UserResult) => {
-          const user = response;
+      .post(this.baseUrl + 'account/login',model).pipe(
+        map((response: any) => {
+          console.log("response login in service : " + response.data);
+          // console.log(response);
+          const user = response.data;
           if (user) {
-            localStorage.setItem('user', JSON.stringify(user));
-            // this.currentUserSource.next(user);
+            // this.storeUser(response.data.nom, response.data.prenom);
+            this.storeUser(response.data);
           }
+          return response;
         })
       );
   }
 
-  storeUser(
-    username: string,
-    nom: string = '',
-    prenom: string = '',
-    email: string = ''
-  ) {
-    let _username = '' + username;
-    let user = new UserResult(_username, nom, prenom, email);
+  storeUser(user: UserResult) {
     this.doRemoveUser();
     this.doSetCurrentUser(user);
   }
+
+  // storeUser(
+  //   username: string,
+  //   nom: string = '',
+  //   prenom: string = '',
+  //   email: string = ''
+  // ) {
+  //   let _username = '' + username;
+  //   let user = new UserResult(_username, nom, prenom, email);
+  //   this.doRemoveUser();
+  //   this.doSetCurrentUser(user);
+  // }
 
   storeUser_(user: UserResult){
     this.doRemoveUser();
@@ -74,8 +97,8 @@ export class AccountService {
     localStorage.removeItem(this.CURRENT_USER);
   }
 
-  private doSetCurrentUser(usr: UserResult) {
-    localStorage.setItem(this.CURRENT_USER, JSON.stringify(usr));
+  private doSetCurrentUser(user: UserResult) {
+    localStorage.setItem(this.CURRENT_USER, JSON.stringify(user));
   }
 
   public get userValue(): UserResult {
@@ -88,7 +111,7 @@ export class AccountService {
     return this.http.post(this.baseUrl + 'Account/register', model).pipe(
       map((user: UserResult) => {
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          // localStorage.setItem('user', JSON.stringify(user));
           // this.currentUserSource.next(user);
         }
         return user;
@@ -97,7 +120,7 @@ export class AccountService {
   }
 
   
-  logout(url: string) {
+  logOut(url: string) {
     localStorage.removeItem(this.CURRENT_USER);
     this.router.navigate([url]);
     // this.currentUserSource.next(null);

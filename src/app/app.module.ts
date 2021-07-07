@@ -20,6 +20,14 @@ import { ListComponent } from './views/club/list/list.component';
 import { DetailComponent } from './views/club/detail/detail.component';
 import { CreateComponent } from './views/club/create/create.component';
 import { UpdateComponent } from './views/club/update/update.component';
+import { ContentComponent } from './shared/layout/content/content.component';
+import { LoginLayoutComponent } from './shared/layout/login-layout/login-layout.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { NavbarComponent } from './shared/layout/navbar/navbar.component';
+import { WrapMenuComponent } from './shared/layout/wrap-menu/wrap-menu.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,13 @@ import { UpdateComponent } from './views/club/update/update.component';
     ListComponent,
     DetailComponent,
     CreateComponent,
-    UpdateComponent
+    UpdateComponent,
+    ContentComponent,
+    LoginLayoutComponent,
+    FooterComponent,
+    HeaderComponent,
+    NavbarComponent,
+    WrapMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +58,11 @@ import { UpdateComponent } from './views/club/update/update.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

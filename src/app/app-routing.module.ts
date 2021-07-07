@@ -7,6 +7,8 @@ import { ListsComponent } from './lists/lists.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RegisterComponent } from './register/register.component';
+import { ContentComponent } from './shared/layout/content/content.component';
+import { LoginLayoutComponent } from './shared/layout/login-layout/login-layout.component';
 
 const routes: Routes = [
   {
@@ -15,25 +17,25 @@ const routes: Routes = [
     redirectTo: '/account/log-in',
   },
   {
-    path: '',
-    // component: ContentComponent,
-    children : [
-      {
-        path: 'clubs-list',
-        // canActivate: [AuthGuard],
-        loadChildren: () => import('./views/club/club.module').then(m => m.ClubModule)
-      }
-    ]
-  },
-  {
     path: 'account',
-    // component: LoginLayoutComponent,
+    component: LoginLayoutComponent,
 
     children: [
       {
         path: '',
         loadChildren: () => import('./views/account/account.module').then(m => m.AccountModule)
       },
+    ]
+  },
+  {
+    path: 'club',
+    component: ContentComponent,
+    children : [
+      {
+        path: 'clubs-list',
+        // canActivate: [AuthGuard],
+        loadChildren: () => import('./views/club/club.module').then(m => m.ClubModule)
+      }
     ]
   },
   // {path: 'home', component: HomeComponent},

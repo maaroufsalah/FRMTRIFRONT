@@ -5,6 +5,8 @@ import { AccountRoutingModule } from './account-routing.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AccountRoutingModule,
     ReactiveFormsModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    SharedModule,
+    NgxSpinnerModule
   ]
 })
 export class AccountModule { }

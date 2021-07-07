@@ -19,3 +19,11 @@ export class UserResult {
         this.cin = this.cin;
     }
 }
+
+export class UserRequest {
+    
+    username?: string;
+    password?: string;
+    rememberme?: boolean;
+
+}

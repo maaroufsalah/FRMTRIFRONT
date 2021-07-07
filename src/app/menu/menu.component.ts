@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../_models/user';
-import { AccountService } from '../_services/account.service';
+// import { AccountService } from '../views/account/account.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,9 @@ import { AccountService } from '../_services/account.service';
 export class MenuComponent implements OnInit {
   model: any = {};
 
-  constructor(public accountService: AccountService) { }
+  constructor(
+    //public accountService: AccountService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -24,8 +26,8 @@ export class MenuComponent implements OnInit {
   //   });
   // }
 
-  logout() {
-    this.accountService.logout();
-  }
+  // logout() {
+  //   this.accountService.logout('/account/log-in');
+  // }
 
 }
