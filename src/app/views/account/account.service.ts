@@ -59,8 +59,7 @@ export class AccountService {
     return this.http
       .post(this.baseUrl + 'account/login',model).pipe(
         map((response: any) => {
-          console.log("response login in service : " + response.data);
-          // console.log(response);
+          console.log(response);
           const user = response.data;
           if (user) {
             // this.storeUser(response.data.nom, response.data.prenom);

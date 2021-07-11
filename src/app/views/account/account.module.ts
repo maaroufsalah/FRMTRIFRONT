@@ -6,7 +6,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgxSpinnerModule } from 'ngx-spinner';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     AccountRoutingModule,
     SharedModule,
-    NgxSpinnerModule
+    // NgxSpinnerModule
   ]
 })
 export class AccountModule { }

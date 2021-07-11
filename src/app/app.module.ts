@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './shared/layout/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +27,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { NavbarComponent } from './shared/layout/navbar/navbar.component';
 import { WrapMenuComponent } from './shared/layout/wrap-menu/wrap-menu.component';
 import { ToastrModule } from 'ngx-toastr';
-import { NgxSpinnerModule } from 'ngx-spinner';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    NgxSpinnerModule,
+    // NgxSpinnerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
